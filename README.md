@@ -109,3 +109,5 @@ Banco PostgreSQL para produção. <br>
 Monitoramento em tempo real com WebSockets. <br>
 Integração com sistemas hospitalares externos (SOC/HL7/FHIR). <br>
 Deploy em Docker com containers separados (frontend + backend). <br>
+Implementação de um m´odulo de analise estatistica de tempo <br>
+Implementação de um modulo de reração de relatórios
