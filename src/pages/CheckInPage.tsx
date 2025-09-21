@@ -45,10 +45,7 @@ const CheckInPage: React.FC = () => {
         flexDirection: "column",
       }}
     >
-      {/* Header */}
       <Header />
-
-      {/* Navegação logo abaixo do Header */}
       <div
         style={{
           display: "flex",
@@ -111,7 +108,7 @@ const CheckInPage: React.FC = () => {
       >
         <h1
           style={{
-            fontSize: 38,
+            fontSize: 70,
             marginBottom: "10px",
             lineHeight: 1.2,
             color: colors.borderBlue,
@@ -119,7 +116,7 @@ const CheckInPage: React.FC = () => {
         >
           CheckIn
         </h1>
-        <p style={{ marginBottom: "28px", color: "#555", fontSize: 16 }}>
+        <p style={{ marginBottom: "18px", color: "#555", fontSize: 30 }}>
           Vamos melhorar o dia de alguem hoje?
         </p>
 
@@ -131,7 +128,7 @@ const CheckInPage: React.FC = () => {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               style={{
-                padding: "10px 40px 10px 12px",
+                padding: "20px 160px 20px 24px",
                 border: "1px solid #ccc",
                 borderRadius: "8px",
                 outline: "none",
@@ -154,7 +151,7 @@ const CheckInPage: React.FC = () => {
           <button
             onClick={handleSearch}
             style={{
-              padding: "11px 20px",
+              padding: "20px 24px",
               background: colors.tealLight,
               border: "none",
               borderRadius: "8px",
@@ -168,7 +165,6 @@ const CheckInPage: React.FC = () => {
           </button>
         </div>
 
-        {/* Toggle de prioridade */}
         <div
           style={{
             marginTop: "20px",
@@ -204,7 +200,7 @@ const CheckInPage: React.FC = () => {
               }}
             />
           </div>
-          <span style={{ fontSize: 15, color: "#333" }}>
+          <span style={{ fontSize: 20, color: "#333" }}>
             Cliente com prioridade
           </span>
         </div>

@@ -9,11 +9,9 @@ export interface User {
   role: Role;
 }
 
-// Função simulada de login usando os usuários mockados
 export async function loginSimulado(username: string, password: string): Promise<User> {
-  await new Promise(r => setTimeout(r, 300)); // simula delay de API
+  await new Promise(r => setTimeout(r, 300));
 
-  // Procura usuário no mock
   const usuario: Usuario | undefined = usuariosMock.find(
     u => u.username === username && u.password === password
   );

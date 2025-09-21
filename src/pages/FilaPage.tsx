@@ -35,10 +35,15 @@ const FilaPage: React.FC = () => {
   };
 
   return (
-    <div style={{ width: "100%", background: colors.cardBg, fontFamily: "Arial, sans-serif", minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div style={{
+            width: "100%",
+            background: colors.cardBg,
+            fontFamily: "PT Sans, sans-serif",
+            minHeight: "100vh",
+            display: "flex",
+            flexDirection: "column",
+          }}>
       <Header />
-
-      {/* Navegação logo abaixo do Header */}
       <div
               style={{
                 display: "flex",
@@ -91,10 +96,10 @@ const FilaPage: React.FC = () => {
 
 
       <main style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", padding: "20px 80px", position: "relative" }}>
-        <h1 style={{ fontSize: 38, marginBottom: "10px", lineHeight: 1.2, color: colors.borderBlue }}>
-          Consulte<br />seus exames
+        <h1 style={{ fontSize: 70, marginBottom: "10px", lineHeight: 1.2, color: colors.borderBlue }}>
+          Consulte seus <br />exames
         </h1>
-        <p style={{ marginBottom: "28px", color: "#555", fontSize: 16 }}>Todos seus exames na palma da sua mão.</p>
+        <p style={{ marginBottom: "18px", color: "#555", fontSize: 30 }}>Todos seus exames na palma da sua mão.</p>
 
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <div style={{ position: "relative" }}>
@@ -103,13 +108,13 @@ const FilaPage: React.FC = () => {
               placeholder="CPF ou código"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              style={{ padding: "10px 40px 10px 12px", border: "1px solid #ccc", borderRadius: "8px", outline: "none", width: "280px", fontSize: 15 }}
+              style={{ padding: "20px 160px 20px 24px", border: "1px solid #ccc", borderRadius: "8px", outline: "none", width: "280px", fontSize: 15 }}
             />
             <Search size={18} color="#888" style={{ position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)" }} />
           </div>
           <button
             onClick={handleSearch}
-            style={{ padding: "11px 20px", background: colors.tealLight, border: "none", borderRadius: "8px", color: "#fff", cursor: "pointer", fontWeight: 600, fontSize: 15 }}
+            style={{ padding: "20px 24px", background: colors.tealLight, border: "none", borderRadius: "8px", color: "#fff", cursor: "pointer", fontWeight: 600, fontSize: 15 }}
           >
             Procurar
           </button>

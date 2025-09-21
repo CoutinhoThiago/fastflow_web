@@ -11,7 +11,7 @@ export interface User {
 export interface Exam {
   id: number;
   name: string;
-  avgMinutes: number; // tempo médio por exame
+  avgMinutes: number;
 }
 
 export interface Atendimento {
@@ -20,8 +20,8 @@ export interface Atendimento {
   pacienteName: string;
   pacienteCpf: string;
   exames: Exam[];
-  horarioChegada: string; // ISO
+  horarioChegada: string;
   sesiId?: string;
   status: 'EM_ESPERA' | 'EM_ATENDIMENTO' | 'FINALIZADO';
-  profissionalId?: string; // id do medico/tecnico que está atendendo
+  profissionalId?: string;
 }

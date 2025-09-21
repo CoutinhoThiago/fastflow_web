@@ -60,7 +60,6 @@ export const pacientesMock: Paciente[] = [
   },
 ];
 
-// Pacientes da fila
 // src/data/mock.ts
 export interface ExameFila {
   id: number;
@@ -72,7 +71,7 @@ export interface ExameFila {
 }
 
 export interface PacienteFila {
-  cpf: string;    // armazenamos sem pontuação: ex: "12345678900"
+  cpf: string;
   codigo: string;
   nome: string;
   exames: ExameFila[];

@@ -13,10 +13,8 @@ const AtendentePage: React.FC = () => {
       return;
     }
     console.log("Check-in realizado:", { senha, prioridade });
-    // navigate("/alguma-rota");
   };
 
-  // Estilos em objeto CSS
   const styles = {
     container: {
       display: "flex",

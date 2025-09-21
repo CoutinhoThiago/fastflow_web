@@ -61,7 +61,6 @@ const MedicoPage: React.FC = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Função: iniciar atendimento
   const iniciarAtendimento = () => {
     if (pacienteChamado) {
       const atualizado = { ...pacienteChamado, status: "Em Atendimento" };
@@ -74,7 +73,6 @@ const MedicoPage: React.FC = () => {
     }
   };
 
-  // Função: cancelar atendimento (volta para aguardando)
   const cancelarAtendimento = () => {
     if (pacienteChamado) {
       setPacientes((prev) =>
@@ -88,7 +86,6 @@ const MedicoPage: React.FC = () => {
     }
   };
 
-  // Função: finalizar atendimento → já chama próximo
   const finalizarAtendimento = () => {
     if (pacienteChamado) {
       setPacientes((prev) =>
@@ -102,7 +99,6 @@ const MedicoPage: React.FC = () => {
     }
   };
 
-  // Função: chamar próximo paciente
   const chamarProximo = () => {
     if (!pacienteChamado) {
       const primeiro = pacientes
@@ -116,7 +112,6 @@ const MedicoPage: React.FC = () => {
       return;
     }
 
-    // próximo deve ter id maior que o atual
     const proximo = pacientes
       .filter((p) => p.status === "Aguardando" && p.id > pacienteChamado.id)
       .sort((a, b) => a.id - b.id)[0];
@@ -132,7 +127,6 @@ const MedicoPage: React.FC = () => {
     }
   };
 
-  // Descobre o próximo paciente (não mostra quem já está em atendimento)
   const proximoPaciente = pacienteChamado
     ? pacientes
         .filter((p) => p.status === "Aguardando" && p.id > pacienteChamado.id)
@@ -165,7 +159,6 @@ const MedicoPage: React.FC = () => {
           padding: 30,
         }}
       >
-        {/* Cabeçalho médico */}
         <div
           style={{
             display: "flex",
@@ -181,11 +174,7 @@ const MedicoPage: React.FC = () => {
               Cardiologista
             </p>
           </div>
-          <div style={{ textAlign: "right", fontSize: 15 }}>
-            <strong>15:19</strong>
-            <br />
-            20/09/2025
-          </div>
+
         </div>
 
         <hr
@@ -195,18 +184,20 @@ const MedicoPage: React.FC = () => {
             margin: "14px 0 24px",
           }}
         />
-
-        {/* Chamando */}
         <section style={{ marginBottom: 30 }}>
           <h2
-            style={{
-              color: colors.tealLight,
-              fontSize: 20,
-              margin: "0 0 12px",
-            }}
-          >
-            Chamando
-          </h2>
+  style={{
+    color: colors.tealLight,
+    fontSize: 20,
+    margin: "0 0 12px",
+  }}
+>
+  {pacienteChamado
+    ? pacienteChamado.status === "Em Atendimento"
+      ? "Paciente em atendimento"
+      : "Chamando"
+    : "Nenhum paciente"}
+</h2>
           {pacienteChamado ? (
             <div
               style={{
@@ -310,8 +301,6 @@ const MedicoPage: React.FC = () => {
             </div>
           )}
         </section>
-
-        {/* Próximo paciente */}
 <section style={{ marginBottom: 30 }}>
   <h2
     style={{
@@ -372,8 +361,6 @@ const MedicoPage: React.FC = () => {
     </div>
 )}
 </section>
-
-        {/* Na fila */}
         <section>
           <h2
             style={{ color: colors.tealLight, fontSize: 20, margin: "0 0 12px" }}

@@ -45,7 +45,6 @@ const ExamesPage: React.FC = () => {
 
   if (!pacienteEncontrado) return null;
 
-  // cálculo de tempo total
   const tempoTotal = pacienteEncontrado.exames
     .filter((e) => e.status !== "Finalizado")
     .reduce((acc, e) => acc + e.tempoEspera, 0);
@@ -53,13 +52,13 @@ const ExamesPage: React.FC = () => {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Aguardando":
-        return "#ff4d4f"; // vermelho
+        return "#ff4d4f"; 
       case "Chamando":
-        return "#ffeaa7"; // amarelo
+        return "#ffeaa7";
       case "Em andamento":
-        return "#b2bec3"; // cinza
+        return "#b2bec3"; 
       case "Finalizado":
-        return "#2ecc71"; // verde
+        return "#2ecc71";
       default:
         return "#b2bec3";
     }
@@ -77,10 +76,7 @@ const ExamesPage: React.FC = () => {
       <Header />
 
       <main style={{  maxWidth: 1192, margin: "120px auto", padding: "0 20px" }}>
-        {/* Título */}
         <h1 style={{ color: "#0070c0", marginBottom: 20 }}>Seus exames</h1>
-
-        {/* Busca */}
         <div style={{ display: "flex", gap: 10, marginBottom: 20 }}>
           <input
             type="text"
@@ -111,9 +107,7 @@ const ExamesPage: React.FC = () => {
           </button>
         </div>
 
-        {/* Card de paciente e total de espera */}
         <div style={{ display: "flex", gap: 20, marginBottom: 20, alignItems: "stretch" }}>
-          {/* Card paciente */}
           <div
             style={{
               flex: 2,
@@ -130,7 +124,6 @@ const ExamesPage: React.FC = () => {
             <span>CPF: {pacienteEncontrado.cpf}</span>
           </div>
 
-          {/* Card tempo de espera */}
           <div
             style={{
               flex: 1,
@@ -153,10 +146,9 @@ const ExamesPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Lista de exames */}
         <div
           style={{
-            width: "100%", // apenas 100%, sem maxWidth duplicado
+            width: "100%",
             background: "#fff",
             padding: 20,
             borderRadius: 12,
@@ -165,7 +157,6 @@ const ExamesPage: React.FC = () => {
             boxSizing: "border-box",
           }}
           >
-          {/* Em andamento */}
           {pacienteEncontrado.exames
             .filter((e) => e.status === "Em andamento")
             .map((exame) => (
@@ -177,7 +168,7 @@ const ExamesPage: React.FC = () => {
                   alignItems: "center",
                   padding: "12px",
                   borderRadius: "10px",
-                  background: colors.background, // amarelo para em andamento
+                  background: colors.background,
                   marginBottom: "10px",
                 }}
               >
@@ -200,7 +191,6 @@ const ExamesPage: React.FC = () => {
               </div>
             ))}
 
-          {/* Chamando */}
           {pacienteEncontrado.exames
             .filter((e) => e.status === "Chamando")
             .map((exame) => (
@@ -234,7 +224,6 @@ const ExamesPage: React.FC = () => {
               </div>
             ))}
 
-          {/* Aguardando */}
           {pacienteEncontrado.exames
             .filter((e) => e.status === "Aguardando")
             .map((exame) => (
@@ -268,7 +257,6 @@ const ExamesPage: React.FC = () => {
               </div>
             ))}
 
-          {/* Finalizados */}
           {pacienteEncontrado.exames
             .filter((e) => e.status === "Finalizado")
             .map((exame) => (
