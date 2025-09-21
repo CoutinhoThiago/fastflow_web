@@ -1,70 +1,91 @@
-# Getting Started with Create React App
+# 🖥️ FastFlow - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é o **frontend** do protótipo **FastFlow**, desenvolvido em **React** para o Hackathon SESI Bahia.  
+O sistema tem como objetivo otimizar a **gestão de filas de atendimento do SESI**, e melhorar a experiencia do paciente permitindo que **usuários, atendentes e médicos** acompanhem e interajam com o fluxo de uma maneira mais eficiente e dinâmica.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Funcionalidades
 
-### `npm start`
+- **👤 Usuário (Paciente)**
+  - Consultar sua posição na fila por **CPF** ou **Número Único**.
+  - Visualizar tempo médio de espera de cada exame.
+  - Receber notificação na tela quando for chamado (exame em destaque verde, mostrando sala e profissional responsável).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **🧑‍💼 Atendente**
+  - Gerenciar fila de pacientes.
+  - Inserir novos pacientes e vincular aos exames.
+  - Consultar e atualizar status da fila.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **👨‍⚕️ Médico**
+  - Chamar paciente para atendimento.
+  - Alterar status do exame em andamento.
+  - Finalizar atendimento, liberando o próximo da fila.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Tecnologias Utilizadas
 
-### `npm run build`
+- [React](https://react.dev/) (v18+)
+- [React Router](https://reactrouter.com/) para navegação entre páginas.
+- [Axios](https://axios-http.com/) para integração com o backend.
+- [Phosphor Icons](https://phosphoricons.com/) para ícones.
+- Estilização com **CSS-in-JS** (inline) e possibilidade de migração para Tailwind/Styled-Components.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 📂 Estrutura de Pastas
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+src/
+ ├── components/   # Componentes reutilizáveis (Header, QueueList etc.)
+ ├── pages/        # Páginas principais (Login, Fila, Atendente, Médico)
+ ├── services/     # Serviços de API (axios configs)
+ ├── context/      # Context API para estados globais
+ ├── App.tsx       # Configuração principal do React Router
+ └── index.tsx     # Ponto de entrada da aplicação
+```
 
-### `npm run eject`
+## ⚙️ Como rodar o projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+Clone este repositório:
+git clone hhttps://github.com/CoutinhoThiago/fastflow_web
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Entre na pasta do projeto:
+cd fastflow-frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Instale as dependências:
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Inicie o servidor de desenvolvimento:
+npm start
 
-## Learn More
+Acesse no navegador:
+http://localhost:3000
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🌐 Integração com Backend
+O frontend consome as APIs REST expostas pelo backend em Spring Boot.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Arquivo de configuração: src/services/api.ts
 
-### Code Splitting
+Base URL padrão: http://localhost:8080/api
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 👥 Equipe
 
-### Analyzing the Bundle Size
+Thiago Coutinho Sousa Silva - Dev/QA (Frontend)<br>
+Kevenn Viana Santos - PO <br>
+Tássio Nascimento Santos - Dev (Backend)<br>
+Lincon de Jesus Brito - UX|UI|Design <br>
+Raphael dos Santos Cerqueira - Especialista em saúde<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🚀 Futuras Melhorias
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Implementar autenticação JWT. <br>
+Melhorar responsividade (mobile-first). <br>
+Dashboard de métricas para gestores. <br>
+Banco PostgreSQL para produção. <br>
+Monitoramento em tempo real com WebSockets. <br>
+Integração com sistemas hospitalares externos (SOC/HL7/FHIR). <br>
+Deploy em Docker com containers separados (frontend + backend). <br>
