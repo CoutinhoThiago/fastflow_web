@@ -1,13 +1,13 @@
 # 🖥️ FastFlow - Frontend
 
 Este é o **frontend** do protótipo **FastFlow**, desenvolvido em **React** para o Hackathon SESI Bahia.  
-O sistema tem como objetivo otimizar a **gestão de filas de atendimento do SESI**, e melhorar a experiencia do paciente permitindo que **usuários, atendentes e médicos** acompanhem e interajam com o fluxo de uma maneira mais eficiente e dinâmica.
+O sistema tem como objetivo otimizar a **gestão de filas de atendimento do SESI**, e melhorar a experiencia do usuario permitindo que **pacientes, atendentes e médicos** acompanhem e interajam com o fluxo de uma maneira mais eficiente e dinâmica.
 
 ---
 
 ## 🚀 Funcionalidades
 
-- **👤 Usuário (Paciente)**
+- **👤 Paciente**
   - Consultar sua posição na fila por **CPF** ou **Número Único**.
   - Visualizar tempo médio de espera de cada exame.
   - Receber notificação na tela quando for chamado (exame em destaque verde, mostrando sala e profissional responsável).
@@ -52,21 +52,18 @@ src/
 Clone este repositório:
 git clone hhttps://github.com/CoutinhoThiago/fastflow_web
 
-Entre na pasta do projeto:
-cd fastflow-frontend
-
 Instale as dependências:
 npm install
 
 Inicie o servidor de desenvolvimento:
-npm start
+npm run dev
 
 Acesse no navegador:
 http://localhost:3000
 ```
 
 ## 🌐 Integração com Backend
-O frontend consome as APIs REST expostas pelo backend em Spring Boot.
+O frontend consome as APIs REST expostas pelo backend em Spring Boot para gerenciamento da fila e do sistema da e cadastro da empresa.
 
 Arquivo de configuração: src/services/api.ts
 
@@ -79,6 +76,29 @@ Kevenn Viana Santos - PO <br>
 Tássio Nascimento Santos - Dev (Backend)<br>
 Lincon de Jesus Brito - UX|UI|Design <br>
 Raphael dos Santos Cerqueira - Especialista em saúde<br>
+
+## 🔄 Fluxos do sistema
+1. Login do Atendente
+
+O atendente acessa o sistema com suas credenciais. Após a autenticação, ele pode realizar o cadastro ou busca de pedidos de exames, além de acompanhar a fila de pacientes.
+
+2. Busca de Pedidos
+
+O atendente localiza o paciente a partir de dados como CPF ou número de protocolo. Essa etapa é essencial para confirmar o agendamento e organizar a fila de atendimento médico.
+
+3. Login do Médico
+
+O médico entra no sistema utilizando suas credenciais. Esse login garante acesso apenas às funcionalidades relacionadas ao atendimento clínico, mantendo a separação de papéis entre atendente e médico.
+
+4. Início de Atendimento
+
+Quando o médico chama um paciente, o status muda automaticamente para “Em Atendimento”.
+Nesse momento, o paciente deixa a fila de espera e passa a ser acompanhado pelo médico em tempo real.
+
+5. Encerramento de Atendimento
+
+Após concluir a consulta/exame, o médico encerra o atendimento no sistema. Isso libera o paciente da fila e possibilita que o próximo seja chamado.
+Esse fluxo também alimenta os registros, permitindo gerar métricas e relatórios no futuro.
 
 ## 🚀 Futuras Melhorias
 
